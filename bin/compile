@@ -10,9 +10,6 @@ set -e
 # Clean up leaking environment
 unset GIT_DIR
 
-# Configuration
-S3_BUCKET=${HEROKU_GEO_BUILDBACK_S3_BUCKET:-"watttime-heroku-geo-buildpack"}
-
 # get environment
 ENV_DIR=$3
 if [ -d ${ENV_DIR} ];
@@ -24,6 +21,10 @@ then
     esac
   done
 fi
+
+# Configuration
+S3_BUCKET=${HEROKU_GEO_BUILDPACK_S3_BUCKET:-"watttime-heroku-geo-buildpack"}
+REGION=${HEROKU_GEO_BUILDPACK_S3_REGION:-"us-west-2"}
 
 # Parameters
 BUILD_DIR=$1
@@ -44,7 +45,7 @@ function indent() {
 }
 
 function manifest_version() {
-  curl "http://${S3_BUCKET}.s3.amazonaws.com/${STACK}/manifest.${1}" -s -o - | head -n 1
+  curl "https://s3.${REGION}.amazonaws.com/${S3_BUCKET}/${STACK}/manifest.${1}" -s -o - | head -n 1
 }
 
 function download_package() {
@@ -53,7 +54,7 @@ function download_package() {
   location="$3"
 
   mkdir -p $location
-  package="https://${S3_BUCKET}.s3.amazonaws.com/${STACK}/$name-$version.tgz"
+  package="https://s3.${REGION}.amazonaws.com/${S3_BUCKET}/${STACK}/$name-$version.tgz"
   curl $package -s -o - | tar xzf - -C $location
 }
 
