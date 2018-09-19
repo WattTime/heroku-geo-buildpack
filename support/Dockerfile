@@ -1,5 +1,5 @@
-FROM heroku/heroku:16-build
-MAINTAINER cyberdelia
+FROM heroku/heroku:18-build
+MAINTAINER watttime
 
 RUN apt-get -q update
 RUN apt-get -q -y --no-install-recommends install awscli

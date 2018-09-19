@@ -6,6 +6,6 @@ geo-builder:
     GEOS_VERSION: "3.6.1"
     AWS_ACCESS_KEY_ID:
     AWS_SECRET_ACCESS_KEY:
-    STACK: "heroku-16"
-    S3_BUCKET: "cyberdelia-geo-buildpack"
+    STACK: "heroku-18"
+    S3_BUCKET: "watttime-heroku-geo-buildpack"
   command: bash -c './geo-build'

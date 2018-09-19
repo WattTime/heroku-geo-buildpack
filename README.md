@@ -12,8 +12,8 @@ Usage
 Example usage:
 
 ```
-$ heroku buildpacks:set https://github.com/cyberdelia/heroku-geo-buildpack.git
-$ heroku buildpacks:add heroku/ruby
+$ heroku buildpacks:set https://github.com/watttime/heroku-geo-buildpack.git
+$ heroku buildpacks:add heroku/python
 ```
 
 Run `heroku buildpacks` to make sure that `heroku-geo-buildpack` is added before
@@ -22,8 +22,8 @@ the language buildpacks.
 ```
 $ heroku buildpacks
 === sushi Buildpack URLs
-1. https://github.com/cyberdelia/heroku-geo-buildpack.git
-2. heroku/ruby
+1. https://github.com/watttime/heroku-geo-buildpack.git
+2. heroku/python
 ```
 
 Testing
