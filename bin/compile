@@ -113,8 +113,8 @@ done
 APP_VENDOR="/app/$TARGET_VENDOR_DIR"
 
 # Setup environment variables
-set-env GEOS_LIBRARY_PATH "$APP_VENDOR/lib"
-set-env GDAL_LIBRARY_PATH "$APP_VENDOR/lib"
+set-env GEOS_LIBRARY_PATH "$APP_VENDOR/lib/libgeos_c.so"
+set-env GDAL_LIBRARY_PATH "$APP_VENDOR/lib/libgdal.so"
 set-env PROJ4_LIBRARY_PATH "$APP_VENDOR/lib"
 set-env GDAL_DATA "$APP_VENDOR/share/gdal"
 
